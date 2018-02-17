@@ -1,4 +1,23 @@
 @echo on
+rem Check and obtain admin priveleges
+:checkPrivileges 
+NET FILE 1>NUL 2>NUL
+if '%errorlevel%' == '0' ( goto gotPrivileges ) else ( goto getPrivileges ) 
+
+:getPrivileges 
+if '%1'=='ELEV' (shift & goto gotPrivileges)  
+ECHO. 
+ECHO **************************************
+ECHO Invoking UAC for Privilege Escalation 
+ECHO **************************************
+
+setlocal DisableDelayedExpansion
+set "batchPath=%~0"
+setlocal EnableDelayedExpansion
+ECHO Set UAC = CreateObject^("Shell.Application"^) > "%temp%\OEgetPrivileges.vbs" 
+ECHO UAC.ShellExecute "!batchPath!", "ELEV", "", "runas", 1 >> "%temp%\OEgetPrivileges.vbs" 
+"%temp%\OEgetPrivileges.vbs" 
+exit /B 
 
 rem Hostname change
 set min=100
@@ -93,7 +112,7 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v Bui
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v BuildLabEx /t REG_SZ /d %bi1%.1944.amd64fre.rs1_release.17%bi2%-2100 /f
 
 rem SID\WSUS\PC GUID\Network Adapter GUID\DTC\DHCPv6 (CHANGE PATH TO SOFTWARE SIDCHG http:\\www.stratesave.com\html\sidchg.html)
-C:\Folder\sidchg64 \F \R
+C:\Folder\sidchg64 /F /R /KEY
 
 rem VolumeID change (CHANGE PATH TO SOFTWARE volmeid https:\\technet.microsoft.com\ru-ru\sysinternals\bb897436.aspx)
 C:\Volumeid64.exe C: !_RndAlphaNum!-!_RndAlphaNum2!
