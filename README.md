@@ -2,6 +2,7 @@
 Bat file to change/spoof windows identificators to protect user from local installed software.
 ***************************************************************
 Open .bat file from Administrator account after windows startup
+-
 ***************************************************************
 List of changed identificators:
 
