@@ -31,7 +31,7 @@ List of changed identificators:
 
 13. Logical volume ID (VolumeID needed)
 
-14. Network adapter mac address (Technitium MAC address chaner needed)
+14. Network adapter mac address (Technitium MAC address changer needed)
 ********************************************************************
 SIDCHG 2.0m - http://www.stratesave.com
 
