@@ -1,23 +1,4 @@
 @echo on
-rem Check and obtain admin priveleges
-:checkPrivileges 
-NET FILE 1>NUL 2>NUL
-if '%errorlevel%' == '0' ( goto gotPrivileges ) else ( goto getPrivileges ) 
-
-:getPrivileges 
-if '%1'=='ELEV' (shift & goto gotPrivileges)  
-ECHO. 
-ECHO **************************************
-ECHO Invoking UAC for Privilege Escalation 
-ECHO **************************************
-
-setlocal DisableDelayedExpansion
-set "batchPath=%~0"
-setlocal EnableDelayedExpansion
-ECHO Set UAC = CreateObject^("Shell.Application"^) > "%temp%\OEgetPrivileges.vbs" 
-ECHO UAC.ShellExecute "!batchPath!", "ELEV", "", "runas", 1 >> "%temp%\OEgetPrivileges.vbs" 
-"%temp%\OEgetPrivileges.vbs" 
-exit /B 
 
 rem Hostname change
 set min=100
@@ -103,7 +84,7 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Registration" /
 
 rem Install date change
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v InstallDate /t REG_DWORD /d 150%d2%%d1% /f
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Migration" /v Ie Installed Date /t REG_BINARY /d 150%d2%%d1% /f
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Migration" /v "IE Installed Date" /t REG_BINARY /d 150%d2%%d1% /f
 
 rem Version number change
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v CurrentBuild /t REG_SZ /d %bi1% /f
