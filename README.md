@@ -38,6 +38,8 @@ SIDCHG 2.0m - http://www.stratesave.com
 
 Technitium MAC Address Changer - https://technitium.com/tmac/
 
+VolumeID - https://technet.microsoft.com/ru-ru/sysinternals/bb897436.aspx
+
 ********************************************************************
 Video - https://www.youtube.com/watch?v=bxe0oxZYq5I
 ********************************************************************
