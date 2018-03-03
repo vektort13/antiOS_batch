@@ -44,3 +44,5 @@ VolumeID - https://technet.microsoft.com/ru-ru/sysinternals/bb897436.aspx
 Video - https://www.youtube.com/watch?v=bxe0oxZYq5I
 ********************************************************************
 
+
+# Join the project Antidetect, be elusive!
