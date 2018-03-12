@@ -39,7 +39,18 @@ List of changed identificators:
 30. NetworkAdapterGUID (in progress)
 
 ********************************************************************
-Video - https://www.youtube.com/watch?v=bxe0oxZYq5I
+Usage
+-
+1. Put all files into C:\antiOS
+
+
+2. Launch VolumeID64 (one time on new system) and agree license
+
+
+3. open antiOS.bat
+
+
+Video -
 ********************************************************************
 
 
