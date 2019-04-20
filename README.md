@@ -1,4 +1,7 @@
-# antiOS
+# AntiOS Batch Version
+
+WARNING! This project is outdated and is not supported anymore. Use https://github.com/vektort13/AntiOS instead
+
 Bat file to change/spoof windows identificators to protect user from local installed software.
 # MAYBE YOU NEED TO CHANGE INDIVIDUAL FOR YOUR SYSTEM
 ***************************************************************
