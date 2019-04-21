@@ -1,4 +1,4 @@
-﻿@@echo off
+@@echo off
 
 
 
@@ -19,7 +19,7 @@ FOR /F "usebackq tokens=* %RandomLine% delims=" %%A IN (`TYPE %TextFile%`) DO (
 @echo %hostname%
 
 rem Username change
-SET "TextFile=C:\antiOS\host.txt"
+SET "TextFile=C:\antiOS\user.txt"
 FOR /f %%a IN ('type "%textfile%"^|find /c /v ""') DO SET /a numlines=%%a
 SET /A RandomLine=(%RANDOM% %% %NumLines%)
 IF "%RandomLine%"=="0" (SET "RandomLine=") ELSE (SET "RandomLine=skip=%randomline%")
@@ -230,7 +230,7 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpd
 net start wuauserv 
 
 rem SID\Network Adapter GUID\DTC\DHCPv6 (CHANGE PATH TO SOFTWARE SIDCHG http:\\www.stratesave.com\html\sidchg.html)
-C:\sidchg64 /F /R /KEY
+C:\sidchg64\sidchg64.exe /F /R /KEY
 
 rem VolumeID change
 C:\antiOS\Volumeid64.exe C: !_RndAlphaNum!0-!_RndAlphaNum2!
@@ -265,7 +265,7 @@ cls
 	@echo EDGE Guid:			{27720B92-%Hex1%-%Hex0%-%Hex1%-92%Hex10%}
 	@echo InstallDate:			150%d2%%d1%
 	@echo ProductID:			00331-%m4%-00001-A!_RndAlphaNum2!
-	call productkey.bat
+	call C:\antiOS\productkey.bat
 	@echo WindowsUpdateClientID:		%Hex8%-%Hex1%-%Hex0%-%Hex1%-c9%Hex10%
 	@echo SID:
 	@echo ********************************************************
@@ -284,7 +284,7 @@ cls
 	@echo Install date:			150%d2%%d1%
 	@echo ********************************************************
 	@echo Your new Hardware ID
-	@echo VolumeID:			!_RndAlphaNum!-!_RndAlphaNum2!
+	@echo VolumeID:			!_RndAlphaNum!0-!_RndAlphaNum2!
 	@echo MACadress:			%mac%%m1%%m2%%m3%
 	@echo HardwareGUID:			%Hex8%-%Hex1%-%Hex0%-%Hex1%-80%Hex10%
 	@echo NetworkAdapterGUID:
